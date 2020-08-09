@@ -21,3 +21,4 @@ Route::resource('books','BookController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/books/{id}/delete', 'BookController@destroy');
