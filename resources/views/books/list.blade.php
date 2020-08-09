@@ -8,6 +8,12 @@
 
 <div class="container">
     <table class="table">
+    <tr>
+        <th>Nazwa ksiązki</th>
+        <th>Rok wydania</th>
+        <th>Miejsce wydania</th>
+
+    </tr>
     @forelse($booksList as $book)
         <tr>
                 <td> {{ $book->name }} </td>
@@ -20,8 +26,15 @@
     @empty
         Brak rekordów!
     @endforelse
-    </table>
     
-</div>
+    </table>
 
-@endsection('content')
+    </div>
+    @endsection('content')
+
+
+
+
+
+
+    

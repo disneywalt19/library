@@ -19,9 +19,20 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ URL::to('books') }}">Ksiązki </a>
                     </li>
+
+                    <li>
+                        <a class="nav-link" href="{{ URL::to('loans') }}">Wypozyczenia </a>
+                    </li>
+
+                    <li>
+                        <a class="nav-link" href="{{ URL::to('authors') }}">Autorzy </a>
+                    </li>
                 </ul>
 
             </div>
+
+
+
             </nav>
             @yield('content')
         <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>

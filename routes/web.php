@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('books','BookController');
+Route::resource('loans','LoanController');
+Route::resource('authors','AuthorController');
 
 Auth::routes();
 
