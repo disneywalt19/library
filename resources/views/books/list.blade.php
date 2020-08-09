@@ -7,11 +7,19 @@
 @section('content')
 
 <div class="container">
+    <table class="table">
     @forelse($booksList as $book)
-        Tu będą dane ksiązki!
+        <tr>
+                <td> {{ $book->name }} </td>
+                <td> {{ $book->year }} </td>
+                <td> {{ $book->publication_place }} </td>
+                <td> {{ $book->pages }} </td>
+                <td> {{ $book->price }} </td>
+        </tr>
     @empty
         Brak rekordów!
     @endforelse
+    </table>
     
 </div>
 
