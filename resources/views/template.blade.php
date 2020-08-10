@@ -10,14 +10,19 @@
     </head>
         <body>
             <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ URL::to('books') }}">Ksiązki </a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="{{ URL::to('books') }}">Ksiązki </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{{ URL::to('books/cheapest') }}">Top 3 najtanszych</a>
+                            <a class="dropdown-item" href="{{ URL::to('books/longest') }}">Top 3 najdłuzszych</a>
+                            <a class="dropdown-item" href="{{ URL::to('books') }}">Wszystkie</a>
+                        </div>
                     </li>
 
                     <li>
@@ -30,14 +35,14 @@
                 </ul>
 
             </div>
-
-
-
             </nav>
+
             @yield('content')
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-        <script src="{{ URL::asset('js/code.js') }}"></script>
+
+            <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+            <script src="{{ URL::asset('js/code.js') }}"></script>
+
         </body>
-    </html>    
+</html>    

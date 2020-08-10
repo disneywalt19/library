@@ -16,11 +16,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/books/{id}/delete', 'BookController@destroy');
+Route::get('/books/cheapest','BookController@longest');
+Route::get('/books/longest','BookController@cheapest');
+Route::get('/books/search','BookController@search');
+
 Route::resource('books','BookController');
 Route::resource('loans','LoanController');
 Route::resource('authors','AuthorController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/books/{id}/delete', 'BookController@destroy');
+

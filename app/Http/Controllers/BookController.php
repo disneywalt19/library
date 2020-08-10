@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Isbn;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class BookController extends Controller
 {
@@ -111,4 +112,21 @@ class BookController extends Controller
 
         return redirect('books');
     }
+
+    public function cheapest(Book $book) {
+        $booksList = DB::table('books')->orderBy('price', 'asc')->limit(3)->get();
+        return view('books/list', ['booksList' => $booksList]);
+    }
+
+    public function longest(Book $book) {
+        $booksList = DB::table('books')->orderBy('pages', 'desc')->limit(3)->get();
+        return view('books/list', ['booksList' => $booksList]);
+    }
+
+    public function search(Request $request, Book $book) {
+        $q = $request->input('q', "");
+        $booksList = DB::table('books')->where('name', 'like', "%" . $q . "%")->get();
+        return view('books/list', ['booksList' => $booksList]);
+    }
+
 }
